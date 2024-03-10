@@ -22,7 +22,7 @@ package com.tqz.aop.overview;
  * @author <a href="https://github.com/tian-qingzhao">tianqingzhao</a>
  * @since 2024/3/8 13:56
  */
-public class StaticProxyDemo {
+public class StaticProxyTest {
 
     public static void main(String[] args) {
         EchoService echoService = new ProxyEchoService(new DefaultEchoService());

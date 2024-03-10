@@ -39,12 +39,7 @@ public class AopInterceptorTest {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 if (EchoService.class.isAssignableFrom(method.getDeclaringClass())) {
                     // 前置拦截器
-                    BeforeInterceptor beforeInterceptor = new BeforeInterceptor() {
-                        @Override
-                        public Object before(Object proxy, Method method, Object[] args) {
-                            return System.currentTimeMillis();
-                        }
-                    };
+                    BeforeInterceptor beforeInterceptor = (proxy14, method14, args14) -> System.currentTimeMillis();
                     Long startTime = 0L;
                     Long endTime = 0L;
                     Object result = null;

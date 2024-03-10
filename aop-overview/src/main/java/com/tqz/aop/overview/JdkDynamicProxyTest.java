@@ -26,7 +26,7 @@ import java.lang.reflect.Proxy;
  * @author <a href="https://github.com/tian-qingzhao">tianqingzhao</a>
  * @since 2024/3/8 13:56
  */
-public class JdkDynamicProxyDemo {
+public class JdkDynamicProxyTest {
 
     // class $Proxy0 extends java.lang.reflect.Proxy implements EchoService {
     //   $Proxy0(InvocationHandler handler){
