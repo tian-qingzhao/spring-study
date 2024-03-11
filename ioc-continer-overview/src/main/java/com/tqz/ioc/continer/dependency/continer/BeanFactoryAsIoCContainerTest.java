@@ -9,12 +9,12 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import java.util.Map;
 
 /**
- * <p>
+ * <p>{@link BeanFactory} 作为 IoC 容器示例
  *
  * @author tianqingzhao
  * @since 2021/4/5 22:56
  */
-public class IoCContinerTest {
+public class BeanFactoryAsIoCContainerTest {
 
     public static void main(String[] args) {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();

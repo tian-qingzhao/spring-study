@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tqz</groupId>
-    <artifactId>ioc-continer</artifactId>
+    <artifactId>ioc-continer-overview</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

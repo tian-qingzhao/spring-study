@@ -2,26 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>spring-study</artifactId>
         <groupId>com.tqz</groupId>
+        <artifactId>spring-study</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-bean</artifactId>
+    <artifactId>aop-features</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.9</version>
+        </dependency>
 
         <dependency>
-            <groupId>${groupId}</groupId>
-            <artifactId>ioc-continer-overview</artifactId>
-            <version>${version}</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>aop-overview</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

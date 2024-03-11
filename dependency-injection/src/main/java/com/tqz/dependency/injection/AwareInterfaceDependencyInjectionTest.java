@@ -20,15 +20,15 @@ public class AwareInterfaceDependencyInjectionTest implements BeanFactoryAware, 
     private static ApplicationContext applicationContext;
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.register(AwareInterfaceDependencyInjectionTest.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(AwareInterfaceDependencyInjectionTest.class);
 
-        applicationContext.refresh();
+        context.refresh();
 
-        System.out.println(beanFactory == applicationContext.getBeanFactory());
-        System.out.println(applicationContext == applicationContext);
+        System.out.println(beanFactory == context.getBeanFactory());
+        System.out.println(applicationContext == context);
 
-        applicationContext.close();
+        context.close();
     }
 
     @Override

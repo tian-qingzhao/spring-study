@@ -1,8 +1,9 @@
-package com.tqz.ioc.continer.dependency.annotation;
+package com.tqz.ioc.continer.dependency.continer;
 
 import com.tqz.ioc.continer.domain.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 /**
- * <p>
+ * <p>注解能力 {@link ApplicationContext} 作为 IoC 容器示例
  *
  * @author tianqingzhao
  * @since 2021/4/5 22:51
