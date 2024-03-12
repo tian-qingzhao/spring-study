@@ -16,7 +16,7 @@
  */
 package com.tqz.aop.features;
 
-import com.tqz.aop.features.aspect.AspectConfiguration;
+import com.tqz.aop.features.aspect.AspectAnnotationConfiguration;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.aspectj.annotation.AspectJProxyFactory;
 import org.springframework.aop.framework.AopContext;
@@ -39,7 +39,7 @@ public class AspectJAnnotationUsingAPITest {
         // 创建 Proxy 工厂(AspectJ)
         AspectJProxyFactory proxyFactory = new AspectJProxyFactory(cache);
         // 增加 Aspect 配置类
-        proxyFactory.addAspect(AspectConfiguration.class);
+        proxyFactory.addAspect(AspectAnnotationConfiguration.class);
         // 设置暴露代理对象到 AopContext
         proxyFactory.setExposeProxy(true);
         proxyFactory.addAdvice((MethodBeforeAdvice) (method, args1, target) -> {

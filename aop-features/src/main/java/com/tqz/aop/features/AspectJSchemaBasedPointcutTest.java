@@ -14,17 +14,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tqz.aop.features.aspect;
+package com.tqz.aop.features;
 
-import org.aspectj.lang.annotation.Aspect;
+import com.tqz.aop.overview.EchoService;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Aspect 配置类
+ * 基于 XML 配置 Pointcut 示例
  *
  * @author <a href="https://github.com/tian-qingzhao">tianqingzhao</a>
- * @since 2024/3/10 20:21
+ * @since 2024/3/12 13:48
  */
-@Aspect
-public class AspectConfiguration {
+public class AspectJSchemaBasedPointcutTest {
 
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("classpath:/spring-aop-context.xml");
+
+        context.refresh();
+
+        // 容器中有两个 EchoService 类型的bean，
+        // beanName分别是 echoService、echoServiceProxyFactoryBean
+        // 所以要加个 beanName 区分一下
+        EchoService echoService = context.getBean("echoService", EchoService.class);
+
+        System.out.println(echoService.echo("Hello,World"));
+
+        context.close();
+    }
 }
