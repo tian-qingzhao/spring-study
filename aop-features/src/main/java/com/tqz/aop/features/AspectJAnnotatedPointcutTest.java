@@ -17,6 +17,7 @@
 package com.tqz.aop.features;
 
 import com.tqz.aop.features.aspect.AspectAnnotationConfiguration;
+import com.tqz.aop.features.aspect.AspectAnnotationConfiguration2;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -34,7 +35,8 @@ public class AspectJAnnotatedPointcutTest {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(AspectJAnnotatedPointcutTest.class,
-                AspectAnnotationConfiguration.class);
+                AspectAnnotationConfiguration.class,
+                AspectAnnotationConfiguration2.class);
         context.refresh();
 
         AspectJAnnotatedPointcutTest aspectJAnnotationDemo = context.getBean(AspectJAnnotatedPointcutTest.class);

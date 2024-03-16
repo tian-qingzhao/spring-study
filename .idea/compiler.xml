@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ioc-continer-overview" />
-        <module name="spring-bean" />
         <module name="dependency-injection" />
         <module name="dependency-lookup" />
-        <module name="aop-overview" />
         <module name="aop-features" />
+        <module name="ioc-continer-overview" />
+        <module name="spring-bean" />
+        <module name="circular-references-demo" />
+        <module name="aop-overview" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

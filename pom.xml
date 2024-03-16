@@ -15,6 +15,7 @@
         <module>dependency-injection</module>
         <module>aop-overview</module>
         <module>aop-features</module>
+        <module>circular-references-demo</module>
     </modules>
 
     <properties>

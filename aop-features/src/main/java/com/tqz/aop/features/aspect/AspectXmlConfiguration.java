@@ -18,6 +18,8 @@ package com.tqz.aop.features.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 
+import java.util.Random;
+
 /**
  * Aspect XML 配置类
  *
@@ -27,23 +29,27 @@ import org.aspectj.lang.ProceedingJoinPoint;
 public class AspectXmlConfiguration {
 
     public Object aroundAnyPublicMethod(ProceedingJoinPoint pjp) throws Throwable {
-        System.out.println("@Around any public method : " + pjp.getSignature());
+        Random random = new Random();
+        if (random.nextBoolean()) {
+            throw new RuntimeException("XML For Purpose from XML configuration.");
+        }
+        System.out.println("XML @Around any public method : " + pjp.getSignature());
         return pjp.proceed();
     }
 
     public void beforeAnyPublicMethod() {
-        System.out.println("@Before any public method.");
+        System.out.println("XML @Before any public method.");
     }
 
     public void finalizeAnyPublicMethod() {
-        System.out.println("@After any public method.");
+        System.out.println("XML @After any public method.");
     }
 
     public void afterAnyPublicMethod() {
-        System.out.println("@AfterReturning any public method.");
+        System.out.println("XML @AfterReturning any public method.");
     }
 
     public void afterThrowingAnyPublicMethod() {
-        System.out.println("@AfterThrowing any public method.");
+        System.out.println("XML @AfterThrowing any public method.");
     }
 }
