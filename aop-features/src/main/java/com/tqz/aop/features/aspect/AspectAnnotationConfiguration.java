@@ -18,6 +18,7 @@ package com.tqz.aop.features.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.aop.aspectj.annotation.BeanFactoryAspectJAdvisorsBuilder;
 
 import java.util.Random;
 
@@ -44,7 +45,7 @@ public class AspectAnnotationConfiguration {
      * <li>@Before any public method.(2)</li>
      * <li>@Around before any public method.</li>
      * <li>@Before any public method.</li>
-     * <li>execute()...</li>
+     * <li>业务逻辑方法</li>
      * <li> @AfterReturning any public method.</li>
      * <li>@After any public method.</li>
      * <li>@Around after any public method.</li>
@@ -53,12 +54,14 @@ public class AspectAnnotationConfiguration {
      * @param pjp 连接点
      * @return 返回业务方法的返回值
      * @throws Throwable 异常
+     * @see BeanFactoryAspectJAdvisorsBuilder#buildAspectJAdvisors()
      */
     @Around("anyPublicMethod()")         // Join Point 拦截动作
     public Object aroundAnyPublicMethod(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("@Around before any public method.");
+        // 一定要调用 proceed 方法，否则后面的逻辑都不会执行
         Object result = pjp.proceed();
-//        System.out.println("@Around after any public method.");
+        System.out.println("@Around after any public method.");
 
         return result;
     }

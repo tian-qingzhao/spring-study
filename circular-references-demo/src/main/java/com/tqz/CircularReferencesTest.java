@@ -27,7 +27,6 @@ public class CircularReferencesTest {
     // 一级缓存
     public Map<String, Object> singletonObjects = new ConcurrentHashMap<>();
 
-
     // 二级缓存： 为了将 成熟Bean和纯净Bean分离，避免读取到不完整得Bean
     public Map<String, Object> earlySingletonObjects = new ConcurrentHashMap<>();
 
@@ -164,6 +163,7 @@ public class CircularReferencesTest {
 
     private Object applyBeanPostProcessorsAfterInitialization(String beanName, Object existingBean) {
         Object result = existingBean;
+
         for (BeanPostProcessor processor : beanPostProcessors) {
             Object current = processor.postProcessAfterInitialization(result, beanName);
             if (current == null) {
@@ -171,6 +171,7 @@ public class CircularReferencesTest {
             }
             result = current;
         }
+
         return result;
     }
 

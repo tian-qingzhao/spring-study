@@ -1,10 +1,12 @@
 package com.tqz.aop.features;
 
 import com.tqz.aop.features.interceptor.EchoServiceMethodInterceptor;
+import com.tqz.aop.features.pointcut.EchoServiceEchoMethodPointcut;
 import com.tqz.aop.features.pointcut.EchoServicePointcut;
 import com.tqz.aop.overview.DefaultEchoService;
 import com.tqz.aop.overview.EchoService;
 import org.springframework.aop.framework.ProxyFactory;
+import org.springframework.aop.support.ComposablePointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
 /**
@@ -16,8 +18,14 @@ public class PointcutApiTest {
     public static void main(String[] args) {
         EchoServicePointcut echoServicePointcut = new EchoServicePointcut("echo", EchoService.class);
 
+        EchoServiceEchoMethodPointcut echoServiceEchoMethodPointcut = EchoServiceEchoMethodPointcut.INSTANCE;
+
+        ComposablePointcut pointcut = new ComposablePointcut(echoServiceEchoMethodPointcut);
+        pointcut.intersection(echoServicePointcut.getClassFilter());
+        pointcut.intersection(echoServicePointcut.getMethodMatcher());
+
         DefaultPointcutAdvisor defaultPointcutAdvisor = new DefaultPointcutAdvisor(
-                echoServicePointcut, new EchoServiceMethodInterceptor());
+                pointcut, new EchoServiceMethodInterceptor());
 
         ProxyFactory proxyFactory = new ProxyFactory(new DefaultEchoService());
 
