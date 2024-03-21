@@ -22,10 +22,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * 基于 XML 配置自动代理示例。
  *
- * <p>spring-aop提供了三种自动代理，分别是：
+ * <p>spring-aop提供了四种自动代理，分别是：
  * {@link org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator}
  * {@link org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator}
  * {@link org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator}
+ * {@link org.springframework.aop.framework.autoproxy.InfrastructureAdvisorAutoProxyCreator}
  *
  * @author <a href="https://github.com/tian-qingzhao">tianqingzhao</a>
  * @since 2024/3/17 1:21

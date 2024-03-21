@@ -20,6 +20,7 @@ import com.tqz.aop.features.aspect.AspectAnnotationConfiguration;
 import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.aspectj.annotation.AspectJProxyFactory;
+import org.springframework.aop.framework.AopContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,12 +41,12 @@ public class AspectJAnnotationUsingAPITest {
         // 增加 Aspect 配置类
         proxyFactory.addAspect(AspectAnnotationConfiguration.class);
         // 设置暴露代理对象到 AopContext
-//        proxyFactory.setExposeProxy(true);
+        proxyFactory.setExposeProxy(true);
         proxyFactory.addAdvice((MethodBeforeAdvice) (method, args1, target) -> {
             if ("put".equals(method.getName()) && args1.length == 2) {
-//                Object proxy = AopContext.currentProxy();
+                Object proxy = AopContext.currentProxy();
                 System.out.printf("[MethodBeforeAdvice] 当前存放是 Key: %s , Value : %s ，" +
-                        "代理对象：%s\n", args1[0], args1[1], null);
+                        "代理对象：%s\n", args1[0], args1[1], proxy);
             }
         });
 
